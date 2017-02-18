@@ -1,8 +1,8 @@
 var sdkClient = require('./sdk');
 
 
-var userID = "<user-id>";
-var apiKey = "<api-key>";
+var userID = "<your-user-id>";
+var apiKey = "<your-api-key>";
 
 // make some dummy data in order to call vedic rishi api
 var data = {

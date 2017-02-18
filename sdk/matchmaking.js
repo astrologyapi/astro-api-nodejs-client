@@ -1,11 +1,10 @@
-var f = require('./sdk');
+var sdkclient = require('./sdk');
 
-userID = "<YourUserIdhere>";
-apiKey = "<YourApiKeyHere>";
+var userID = "<your-user-id>";
+var apiKey = "<your-api-key>";
 
 // create a male profile data
-maleData = {
-
+var maleData = {
     'date': 25,
     'month': 12,
     'year': 1988,
@@ -15,9 +14,9 @@ maleData = {
     'longitude': 82.34,
     'timezone': 5.5
 };
-// create female data
-femaleData = {
 
+// create female data
+var femaleData = {
     'date': 27,
     'month': 1,
     'year': 1990,
@@ -30,8 +29,18 @@ femaleData = {
 
 // match making api to be called
 var resource = "match_ashtakoot_points";
-console.log("here");
-var ritesh = new f(userID,apiKey);
+var client = new sdkclient(userID,apiKey);
 
 // call matchMakingCall method of VRClient for matching apis and print Response
-console.log(ritesh.matchMakingCall(resource, maleData, femaleData));
+var matchMakingData = client.matchMakingCall(resource, maleData, femaleData, function(error, result){
+
+    if(error)
+    {
+        console.log("Error returned!!");
+    }
+    else
+    {
+        console.log('Response has arrived from API server --');
+        console.log(result);
+    }
+});

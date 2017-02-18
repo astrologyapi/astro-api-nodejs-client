@@ -1,22 +1,22 @@
-var f = require('./sdk')
+var sdkclient = require('./sdk');
 
 
-var userID = "<user-id>";
-var apiKey = "<api-key>";
+var userID = "<your-user-id>";
+var apiKey = "<your-api-key>";
 
-dateOfBirth = 25;
-monthOfBirth = 12;
-yearOfBirth = 1988;
-name = 'Your Name';
+var dateOfBirth = 25;
+var monthOfBirth = 12;
+var yearOfBirth = 1988;
+var name = 'Your Name';
 
 // Numerology APIs which needs to be called
-resource = 'numero_table';
+var resource = 'numero_table';
 
 // instantiate VRClient class
-vedicRishi = new f(userID, apiKey);
+var client = new sdkclient(userID, apiKey);
 
 // call numerology method of the VRClient
-numeroData = vedicRishi.numeroCall(resource, dateOfBirth, monthOfBirth, yearOfBirth, name, function(error, result){
+var numeroData = client.numeroCall(resource, dateOfBirth, monthOfBirth, yearOfBirth, name, function(error, result){
 
     if(error)
     {
@@ -28,6 +28,3 @@ numeroData = vedicRishi.numeroCall(resource, dateOfBirth, monthOfBirth, yearOfBi
         console.log(result);
     }
 });
-
-// printing data
-console.log(numeroData);

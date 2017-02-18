@@ -111,24 +111,18 @@ VRClient.prototype = {
 		this.getResponse(resource,data, callback);
 	},
 
-	numeroCall:function(resource, date, month, year, nameC, callback){
-		var data = this.packageNumeroData(date, month, year, nameC);
+	numeroCall:function(resource, date, month, year, name, callback){
+		var data = this.packageNumeroData(date, month, year, name);
 		return this.getResponse(resource,data, callback);
 	},
 
-	matchMakingCall:function(resource, maleBirthData, femaleBirthData){
+	matchMakingCall:function(resource, maleBirthData, femaleBirthData, callback){
 		var data = this.packageMatchMakingData(maleBirthData,femaleBirthData);
-		return this.getResponse(resource,data);
+		return this.getResponse(resource,data, callback);
 	}
 
 }	
 
 
-
-
-
-//interacting with the algorithms
-//var ritesh = new VRClient("600453","d6bd5054419e885ff5b39b996f31a72e");
-//ritesh.call('basic_astro',10,12,1993,1,25,19,25,5.5);
 
 module.exports = VRClient;
