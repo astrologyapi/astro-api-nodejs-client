@@ -1,8 +1,8 @@
-var f = require('./sdk;')
+var f = require('./sdk')
 
 
-userID = "<YourUserIdhere>";
-apiKey = "<YourApiKeyHere>";
+var userID = "4545";
+var apiKey = "33e5731ac9bf30a51180ac18a7269ffb";
 
 dateOfBirth = 25;
 monthOfBirth = 12;
@@ -16,7 +16,18 @@ resource = 'numero_table';
 vedicRishi = new f(userID, apiKey);
 
 // call numerology method of the VRClient
-numeroData = vedicRishi.numeroCall(resource, dateOfBirth, monthOfBirth, yearOfBirth, name);
+numeroData = vedicRishi.numeroCall(resource, dateOfBirth, monthOfBirth, yearOfBirth, name, function(error, result){
+
+    if(error)
+    {
+        console.log("Error returned!!");
+    }
+    else
+    {
+        console.log('Response has arrived from API server --');
+        console.log(result);
+    }
+});
 
 // printing data
-console(numeroData);
+console.log(numeroData);

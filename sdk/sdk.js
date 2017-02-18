@@ -29,7 +29,7 @@ VRClient.prototype = {
 	constructor:VRClient,
 	//we define all the function here
 
-	getResponse:function(resource,data){
+	getResponse:function(resource, data, callback){
 		var url = baseUrl + resource;
 		var auth = "Basic " + new Buffer(this.userID + ":" + this.apiKey).toString('base64');
 		request(
@@ -43,7 +43,18 @@ VRClient.prototype = {
 			},
 		
 			function(err, res, body) {
-				console.log(body);
+				if(!err)
+				{
+					if(typeof callback === 'function')
+					{
+						return callback(null, body);
+					}
+				}
+				if(typeof callback === 'function')
+				{
+					return callback(err);
+				}
+				console.log('callback not provided properly');
 			}
 		)
 	},
@@ -95,14 +106,14 @@ VRClient.prototype = {
         return Object.assign(mData, fData);
     },
 
-	call:function(resource, date, month, year, hour, minute, latitude, longitude, timezone){
+	call:function(resource, date, month, year, hour, minute, latitude, longitude, timezone, callback){
 		var data = this.packageHoroData(date, month, year, hour, minute, latitude, longitude, timezone);
-		this.getResponse(resource,data);
+		this.getResponse(resource,data, callback);
 	},
 
-	numeroCall:function(resource, date, month, year, nameC){
+	numeroCall:function(resource, date, month, year, nameC, callback){
 		var data = this.packageNumeroData(date, month, year, nameC);
-		return this.getResponse(resource,data);
+		return this.getResponse(resource,data, callback);
 	},
 
 	matchMakingCall:function(resource, maleBirthData, femaleBirthData){

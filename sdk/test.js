@@ -1,11 +1,11 @@
-var f = require('./sdk');
+var sdkClient = require('./sdk');
 
 
-userID = "<YourUserIdhere>";
-apiKey = "<YourApiKeyHere>";
+var userID = "4545";
+var apiKey = "33e5731ac9bf30a51180ac18a7269ffb";
 
 // make some dummy data in order to call vedic rishi api
-data = {
+var data = {
     'date': 10,
     'month': 12,
     'year': 1993,
@@ -17,10 +17,21 @@ data = {
 };
 
 // api name which is to be called
-resource = "astro_details";
+var resource = "astro_details";
 
 // instantiate VedicRishiClient class
-ritesh = new VRClient(userID, apiKey);
+var client = new sdkClient(userID, apiKey);
 
 // call horoscope apis
-responseData = ritesh.call(resource, data.date, data.month, data.year, data.hour, data.minute, data.latitude, data.longitude, data.timezone);
+client.call(resource, data.date, data.month, data.year, data.hour, data.minute, data.latitude, data.longitude, data.timezone, function(error, result){
+
+    if(error)
+    {
+        console.log("Error returned!!");
+    }
+    else
+    {
+        console.log('Response has arrived from API server --');
+        console.log(result);
+    }
+});

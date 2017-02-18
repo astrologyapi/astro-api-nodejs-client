@@ -1,0 +1,16 @@
+{
+  "name": "astro-api-nodejs-client",
+  "version": "0.0.1",
+  "private": false,
+  "scripts": {
+    "start": "node ./sdk/test.js"
+  },
+  "dependencies": {
+
+    "request": "^2.60.0"
+
+  },
+  "devDependencies": {
+
+  }
+}
