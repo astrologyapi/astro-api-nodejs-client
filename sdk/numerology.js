@@ -1,8 +1,8 @@
 var f = require('./sdk')
 
 
-var userID = "4545";
-var apiKey = "33e5731ac9bf30a51180ac18a7269ffb";
+var userID = "<user-id>";
+var apiKey = "<api-key>";
 
 dateOfBirth = 25;
 monthOfBirth = 12;
