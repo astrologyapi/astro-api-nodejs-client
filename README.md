@@ -1,8 +1,8 @@
 
-Vedic-Rishi-Astro-API-NodeJS-Client
+Astrology-API-NodeJS-Client
 ================================
 
-This is NodeJS client to consume Vedic Rishi Astro APIs
+This is NodeJS client to consume Astrology APIs
 
 Where to get API Key
 ====================
