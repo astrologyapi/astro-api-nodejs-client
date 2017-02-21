@@ -24,9 +24,9 @@ var getResponse = (resource, data, callback) => {
 					return callback(null, body);
 				}
 			}
-				if(typeof callback === 'function') {
-					return callback(err);
-				}
+			if(typeof callback === 'function') {
+				return callback(err);
+			}
 			console.log('callback not provided properly');
 		}
 	)
