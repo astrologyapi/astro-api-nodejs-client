@@ -1,8 +1,4 @@
-var sdkclient = require('./sdk');
-
-
-var userID = "<your-user-id>";
-var apiKey = "<your-api-key>";
+var sdkClient = require('./sdk');
 
 var dateOfBirth = 25;
 var monthOfBirth = 12;
@@ -12,11 +8,9 @@ var name = 'Your Name';
 // Numerology APIs which needs to be called
 var resource = 'numero_table';
 
-// instantiate VRClient class
-var client = new sdkclient(userID, apiKey);
 
-// call numerology method of the VRClient
-var numeroData = client.numeroCall(resource, dateOfBirth, monthOfBirth, yearOfBirth, name, function(error, result){
+// call numerology method
+var numeroData = sdkClient.numeroCall(resource, dateOfBirth, monthOfBirth, yearOfBirth, name, function(error, result){
 
     if(error)
     {

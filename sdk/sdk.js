@@ -1,128 +1,108 @@
-
 var request = require('request');
 var http = require('http');
 
-/************************************************************************
-Guides to Variables
-1) uid - string - User ID for Vedic Rishi Client
-2) key - string - API key for Vedic Rishi Client access
-||| resource - string - API name for api without forward and backward slashes
-3) date - number - Day of Birth
-4) month - number - Month of Birth
-5) year - number - Year of Birth
-6) hour - number - hour of Birth
-7) minute - number - Minute of Birth
-8) latitude - number - latitude of current Location
-9) longitude - number - longitude of current Location
-10) timezone - number - Timezone of current Location
-*************************************************************************/
-//base url for the API
 var baseUrl = "http://api.vedicrishiastro.com/v1/";
+var userID =  "600453";
+var apiKey = "97dd275ab5f87561694efe4cb885447a";
 
-//Constructor for the API client
-var VRClient = function(uid, key){
-	this.userID = uid;
-	this.apiKey = key;
-}
-//Function 
-VRClient.prototype = {
-	constructor:VRClient,
-	//we define all the function here
 
-	getResponse:function(resource, data, callback){
-		var url = baseUrl + resource;
-		var auth = "Basic " + new Buffer(this.userID + ":" + this.apiKey).toString('base64');
-		request(
-			{	
-				url: url,
-				headers: {
-					"Authorization" : auth
-				},
-				method: "POST",
-				form: data
+var getResponse = (resource, data, callback) => {
+	var url = baseUrl + resource;
+	var auth = "Basic " + new Buffer(userID + ":" + apiKey).toString('base64');
+	request(
+		{
+			url: url,
+			headers: {
+				"Authorization": auth
 			},
-		
-			function(err, res, body) {
-				if(!err)
-				{
-					if(typeof callback === 'function')
-					{
-						return callback(null, body);
-					}
+			method: "POST",
+			form: data
+		},
+		function(err, res, body) {
+			if(!err) {
+				if(typeof callback === 'function') {
+					return callback(null, body);
 				}
-				if(typeof callback === 'function')
-				{
+			}
+				if(typeof callback === 'function') {
 					return callback(err);
 				}
-				console.log('callback not provided properly');
-			}
-		)
-	},
-
-	packageHoroData:function(date, month, year, hour, minute, latitude, longitude, timezone){
-		return {
-			'day': date,
-			'month': month,
-			'year': year,
-			'hour': hour,
-			'min': minute,
-			'lat': latitude,
-			'lon': longitude,
-			'tzone': timezone
+			console.log('callback not provided properly');
 		}
-	},
+	)
 
-    packageNumeroData:function(date, month, year, name){
-        return {
-            'day': date,
-            'month': month,
-            'year': year,
-            'name': name
-        }
-    },
+};
 
-    packageMatchMakingData:function(maleBirthData, femaleBirthData){
-        mData = {
-            'm_day': maleBirthData['date'],
-            'm_month': maleBirthData['month'],
-            'm_year': maleBirthData['year'],
-            'm_hour': maleBirthData['hour'],
-            'm_min': maleBirthData['minute'],
-            'm_lat': maleBirthData['latitude'],
-            'm_lon': maleBirthData['longitude'],
-            'm_tzone': maleBirthData['timezone']
-		};
-        fData = {
-            'f_day': femaleBirthData['date'],
-            'f_month': femaleBirthData['month'],
-            'f_year': femaleBirthData['year'],
-            'f_hour': femaleBirthData['hour'],
-            'f_min': femaleBirthData['minute'],
-            'f_lat': femaleBirthData['latitude'],
-            'f_lon': femaleBirthData['longitude'],
-            'f_tzone': femaleBirthData['timezone']
-        };
-
-        return Object.assign(mData, fData);
-    },
-
-	call:function(resource, date, month, year, hour, minute, latitude, longitude, timezone, callback){
-		var data = this.packageHoroData(date, month, year, hour, minute, latitude, longitude, timezone);
-		this.getResponse(resource,data, callback);
-	},
-
-	numeroCall:function(resource, date, month, year, name, callback){
-		var data = this.packageNumeroData(date, month, year, name);
-		return this.getResponse(resource,data, callback);
-	},
-
-	matchMakingCall:function(resource, maleBirthData, femaleBirthData, callback){
-		var data = this.packageMatchMakingData(maleBirthData,femaleBirthData);
-		return this.getResponse(resource,data, callback);
+var packageHoroData = (date, month, year, hour, minute, latitude, longitude, timezone) => {
+	return {
+		'day': date,
+		'month': month,
+		'year': year,
+		'hour': hour,
+		'min': minute,
+		'lat': latitude,
+		'lon': longitude,
+		'tzone': timezone
 	}
 
-}	
+};
+
+var packageNumeroData = (date, month, year, name) => {
+    return {
+        'day': date,
+        'month': month,
+        'year': year,
+        'name': name
+    }
+
+};
+
+var packageMatchMakingData = (maleBirthData, femaleBirthData) => {
+    mData = {
+        'm_day': maleBirthData['date'],
+        'm_month': maleBirthData['month'],
+        'm_year': maleBirthData['year'],
+        'm_hour': maleBirthData['hour'],
+        'm_min': maleBirthData['minute'],
+        'm_lat': maleBirthData['latitude'],
+        'm_lon': maleBirthData['longitude'],
+        'm_tzone': maleBirthData['timezone']
+	};
+    fData = {
+        'f_day': femaleBirthData['date'],
+        'f_month': femaleBirthData['month'],
+        'f_year': femaleBirthData['year'],
+        'f_hour': femaleBirthData['hour'],
+        'f_min': femaleBirthData['minute'],
+        'f_lat': femaleBirthData['latitude'],
+        'f_lon': femaleBirthData['longitude'],
+        'f_tzone': femaleBirthData['timezone']
+    };
+
+    return Object.assign(mData, fData);
+
+};
 
 
 
-module.exports = VRClient;
+var api = {
+	
+	call: (resource, date, month, year, hour, minute, latitude, longitude, timezone, callback) => {
+		var data = packageHoroData(date, month, year, hour, minute, latitude, longitude, timezone);
+		return getResponse(resource, data, callback);
+	},
+
+	numeroCall: (resource, date, month, year, name, callback)=> {
+		var data = packageNumeroData(date, month, year, name);
+		return getResponse(resource, data, callback);
+	},
+
+	matchMakingCall: (resource, maleBirthData, femaleBirthData, callback)=> {
+		var data = packageMatchMakingData(maleBirthData, femaleBirthData);
+		return getResponse(resource, data, callback);
+	}
+
+}
+
+
+module.exports = api;

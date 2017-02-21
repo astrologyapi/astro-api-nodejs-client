@@ -1,7 +1,4 @@
-var sdkclient = require('./sdk');
-
-var userID = "<your-user-id>";
-var apiKey = "<your-api-key>";
+var sdkClient = require('./sdk');
 
 // create a male profile data
 var maleData = {
@@ -29,10 +26,9 @@ var femaleData = {
 
 // match making api to be called
 var resource = "match_ashtakoot_points";
-var client = new sdkclient(userID,apiKey);
 
 // call matchMakingCall method of VRClient for matching apis and print Response
-var matchMakingData = client.matchMakingCall(resource, maleData, femaleData, function(error, result){
+var matchMakingData = sdkClient.matchMakingCall(resource, maleData, femaleData, function(error, result){
 
     if(error)
     {

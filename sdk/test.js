@@ -1,9 +1,5 @@
 var sdkClient = require('./sdk');
 
-
-var userID = "<your-user-id>";
-var apiKey = "<your-api-key>";
-
 // make some dummy data in order to call vedic rishi api
 var data = {
     'date': 10,
@@ -19,11 +15,8 @@ var data = {
 // api name which is to be called
 var resource = "astro_details";
 
-// instantiate VedicRishiClient class
-var client = new sdkClient(userID, apiKey);
-
 // call horoscope apis
-client.call(resource, data.date, data.month, data.year, data.hour, data.minute, data.latitude, data.longitude, data.timezone, function(error, result){
+sdkClient.call(resource, data.date, data.month, data.year, data.hour, data.minute, data.latitude, data.longitude, data.timezone, function(error, result){
 
     if(error)
     {
