@@ -13,17 +13,13 @@ mobile applications.
 How to Use
 ==========
 
-1. Copy sdk.js class file to your local or server file system
-2. Instantiate ```VRClient``` class as follows -
-    ```
-    clientInstance = new VRClient(userID, apiKey);
-    ```
-    Replace ``` userID ``` and ``` apiKey``` with your id and keys respectively.
+1. Copy sdk.js file to your local or server file system
+2. Go to sdk.js and replace ``` userID ``` and ``` apiKey``` with your id and keys respectively.
     You can get the API key details from https://www.vedicrishiastro.com/astro-api/
 
 3. Call the api
     ```
-    response = clientInstance.call(apiName, date, month, year, hour, min, lat, lon, tzone);
+    response = client.call(apiName, date, month, year, hour, min, lat, lon, tzone);
 
     ```
     View test.js for more details about calling APIs.
@@ -49,7 +45,7 @@ How to Use
 5. For calling numerological api, call method name ``` numeroCall() ``` as follows -
 
     ```
-        response = clientInstance.numeroCall(apiName, date, month, year, name);
+        response = client.numeroCall(apiName, date, month, year, name);
 
     ```
     Only date, month and year along with name is required for numerological calculations.
@@ -58,7 +54,7 @@ How to Use
 6. For match making horoscope calculations and report analysis, please use ```matchMakingCall()``` method as follows -
 
     ```
-            response = clientInstance.matchMakingCall(resource, maleBirthData, femaleBirthData);
+            response = client.matchMakingCall(resource, maleBirthData, femaleBirthData);
 			
 			/where  maleBirthData and femaleBirthData is mapped as follows -
 
