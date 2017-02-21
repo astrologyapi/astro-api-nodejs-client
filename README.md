@@ -49,7 +49,7 @@ How to Use
 
     ```
     Only date, month and year along with name is required for numerological calculations.
-    Run the numerolgy.js file to test numerological APIs.
+    Run the numerology.js file to test numerological APIs.
 
 6. For match making horoscope calculations and report analysis, please use ```matchMakingCall()``` method as follows -
 
@@ -82,6 +82,6 @@ How to Use
 			                        'timezone': 5.5
 			                    };
 			    ```
-			Run matching.js file to run Vedic Rishi Match Making APIs.
+			Run matchmaking.js file to run Vedic Rishi Match Making APIs.
 			For API documentation, visit - https://www.vedicrishiastro.com/astro-api/docs/
 			
