@@ -15,8 +15,8 @@ How to Use
 
 1. Copy sdk.js file to your local or server file system
 2. Go to sdk.js and replace ``` userID ``` and ``` apiKey``` with your id and keys respectively.
-    You can get the API key details from https://www.vedicrishiastro.com/astro-api/
-
+    You can get the API key details from https://www.astrologyapi.com/
+    
 3. Call the api
     ```
     response = client.call(apiName, date, month, year, hour, min, lat, lon, tzone);
