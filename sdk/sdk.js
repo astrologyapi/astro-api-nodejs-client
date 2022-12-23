@@ -87,9 +87,10 @@ var packageMatchMakingData = (maleBirthData, femaleBirthData) => {
   return Object.assign(mData, fData);
 };
 
-var packageDailyHoroData = (zodiacName) => {
+var packageDailyHoroData = (zodiacName, timezone) => {
   return {
     zodiacName: zodiacName,
+    timezone: timezone,
   };
 };
 
@@ -129,8 +130,8 @@ var api = {
     return getResponse(resource, data, callback);
   },
 
-  dailyHoroCall: (resource, zodiacName, callback) => {
-    var data = packageDailyHoroData(zodiacName);
+  dailyHoroCall: (resource, zodiacName, timezone, callback) => {
+    var data = packageDailyHoroData(zodiacName, timezone);
     return getResponse(resource, data, callback);
   },
 };
