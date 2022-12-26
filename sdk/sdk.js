@@ -2,8 +2,8 @@ var request = require("request");
 var http = require("http");
 
 var baseUrl = "https://json.astrologyapi.com/v1/";
-var userID = "620457";
-var apiKey = "2ba7a54e42f39fa6a05602d962fc9edb";
+var userID = "<your-user-id>";
+var apiKey = "<your-api-key>";
 
 var getResponse = (resource, data, callback) => {
   var url = baseUrl + resource;
