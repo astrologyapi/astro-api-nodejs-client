@@ -1,14 +1,14 @@
 var sdkClient = require("./sdk");
 
-// make some dummy data in order to call astrology api
-var zodiacName = "taurus";
-var timezone = 5.5;
+//Zodiac sign
+var zodiacName = "aries";
+var timezone = -5.5;
 
-// api name which is to be called
+//Daily Horoscope APIs need to be called
 var resource = `sun_sign_prediction/daily/${zodiacName}`;
 
-// call horoscope apis
-sdkClient.dailyHoroCall(
+// call dailyHoroCall method for daily predictions
+var dailyHoroData = sdkClient.dailyHoroCall(
   resource,
   zodiacName,
   timezone,
