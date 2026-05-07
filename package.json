@@ -59,7 +59,7 @@
     "test:coverage": "vitest run --coverage",
     "lint": "tsc --noEmit",
     "prepublishOnly": "npm run build && npm test",
-    "prepare": "tsc"
+    "prepare": "tsup"
   },
   "engines": {
     "node": ">=18.0.0"
