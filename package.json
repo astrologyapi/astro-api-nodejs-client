@@ -1,0 +1,73 @@
+{
+  "name": "astrologyapi",
+  "version": "2.0.0",
+  "description": "Official Node.js / TypeScript SDK for AstrologyAPI.com — Vedic, Western, KP, Lal Kitab, Numerology, Horoscopes, Tarot, Chinese, and PDF reports",
+  "keywords": [
+    "astrology",
+    "api",
+    "astrologyapi",
+    "vedic",
+    "western",
+    "kundli",
+    "horoscope",
+    "jyotish",
+    "numerology",
+    "tarot",
+    "typescript",
+    "sdk"
+  ],
+  "author": "AstrologyAPI <support@astrologyapi.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/astrologyapi/astro-api-nodejs-client.git"
+  },
+  "homepage": "https://astrologyapi.com/docs",
+  "bugs": {
+    "url": "https://github.com/astrologyapi/astro-api-nodejs-client/issues"
+  },
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      },
+      "require": {
+        "types": "./dist/index.d.cts",
+        "default": "./dist/index.cjs"
+      }
+    }
+  },
+  "files": [
+    "dist/index.js",
+    "dist/index.cjs",
+    "dist/index.d.ts",
+    "dist/index.d.cts",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "build:watch": "tsup --watch",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage",
+    "lint": "tsc --noEmit",
+    "prepublishOnly": "npm run build && npm test"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^25.5.2",
+    "@vitest/coverage-v8": "^4.1.2",
+    "tsup": "^8.0.0",
+    "typescript": "^5.4.0",
+    "vitest": "^4.1.2"
+  }
+}
