@@ -1,5 +1,5 @@
-import { HttpClient } from "../http.js";
-import type { BirthData, Language, PlanetName } from "../types.js";
+import { HttpClient } from "../http";
+import type { BirthData, Language, PlanetName } from "../types";
 
 /**
  * Lal Kitab astrology namespace.

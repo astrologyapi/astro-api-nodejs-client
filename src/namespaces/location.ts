@@ -1,5 +1,5 @@
-import { HttpClient } from "../http.js";
-import type { Language } from "../types.js";
+import { HttpClient } from "../http";
+import type { Language } from "../types";
 
 /**
  * Location namespace — geographic lookup and timezone resolution.

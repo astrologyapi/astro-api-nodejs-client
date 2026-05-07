@@ -1,5 +1,5 @@
-import { HttpClient } from "../http.js";
-import type { BirthData, CoupleBirthData, Language, MatchBirthData, PDFBranding } from "../types.js";
+import { HttpClient } from "../http";
+import type { BirthData, CoupleBirthData, Language, MatchBirthData, PDFBranding } from "../types";
 
 type VedicPDFData = BirthData & {
   gender?: string;

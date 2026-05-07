@@ -7,8 +7,8 @@ import {
   RateLimitError,
   ServerError,
   ValidationError,
-} from "./errors.js";
-import { SDK_VERSION } from "./version.js";
+} from "./errors";
+import { SDK_VERSION } from "./version";
 
 const BASE_JSON_URL = "https://json.astrologyapi.com";
 const BASE_PDF_URL = "https://pdf.astrologyapi.com";

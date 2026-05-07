@@ -1,5 +1,5 @@
-import { HttpClient } from "../http.js";
-import type { BirthData, Language } from "../types.js";
+import { HttpClient } from "../http";
+import type { BirthData, Language } from "../types";
 
 /**
  * Chinese astrology namespace — Chinese zodiac sign and annual forecast.

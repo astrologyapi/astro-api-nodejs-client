@@ -1,5 +1,5 @@
-import { HttpClient } from "../http.js";
-import type { BirthData, Language } from "../types.js";
+import { HttpClient } from "../http";
+import type { BirthData, Language } from "../types";
 
 /**
  * KP (Krishnamurti Paddhati) astrology namespace.

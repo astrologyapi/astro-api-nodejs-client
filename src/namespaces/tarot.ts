@@ -1,5 +1,5 @@
-import { HttpClient } from "../http.js";
-import type { Language } from "../types.js";
+import { HttpClient } from "../http";
+import type { Language } from "../types";
 
 /**
  * Tarot namespace — tarot card readings.

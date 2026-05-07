@@ -1,5 +1,5 @@
-import {HttpClient} from "../http.js";
-import type {BirthData, Language, NumerologyData} from "../types.js";
+import {HttpClient} from "../http";
+import type {BirthData, Language, NumerologyData} from "../types";
 
 /**
  * Numerology namespace — Vedic and Western numerological calculations.

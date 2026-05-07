@@ -1,19 +1,19 @@
-import { HttpClient } from "./http.js";
-import { ChineseNamespace } from "./namespaces/chinese.js";
-import { HoroscopesNamespace } from "./namespaces/horoscopes.js";
-import { KPNamespace } from "./namespaces/kp.js";
-import { LalKitabNamespace } from "./namespaces/lal-kitab.js";
-import { LocationNamespace } from "./namespaces/location.js";
-import { NumerologyNamespace } from "./namespaces/numerology.js";
-import { PDFNamespace } from "./namespaces/pdf.js";
-import { TarotNamespace } from "./namespaces/tarot.js";
-import { VedicNamespace } from "./namespaces/vedic.js";
-import { WesternNamespace } from "./namespaces/western.js";
-import { WesternTransitNamespace } from "./namespaces/western-transit.js";
-import type { AstrologyAPIConfig, Language } from "./types.js";
+import { HttpClient } from "./http";
+import { ChineseNamespace } from "./namespaces/chinese";
+import { HoroscopesNamespace } from "./namespaces/horoscopes";
+import { KPNamespace } from "./namespaces/kp";
+import { LalKitabNamespace } from "./namespaces/lal-kitab";
+import { LocationNamespace } from "./namespaces/location";
+import { NumerologyNamespace } from "./namespaces/numerology";
+import { PDFNamespace } from "./namespaces/pdf";
+import { TarotNamespace } from "./namespaces/tarot";
+import { VedicNamespace } from "./namespaces/vedic";
+import { WesternNamespace } from "./namespaces/western";
+import { WesternTransitNamespace } from "./namespaces/western-transit";
+import type { AstrologyAPIConfig, Language } from "./types";
 
-export { AstrologyAPIError, AuthenticationError, NetworkError, PlanRestrictedError, QuotaExceededError, RateLimitError, ServerError, ValidationError } from "./errors.js";
-export type { AstrologyAPIConfig, BirthData, ChartId, CoupleBirthData, DashaPlanet, Language, MatchBirthData, MajorDashaPlanet, NumerologyData, PapasamyamData, PDFBranding, PlanetName, VarshaphalData, ZodiacSign } from "./types.js";
+export { AstrologyAPIError, AuthenticationError, NetworkError, PlanRestrictedError, QuotaExceededError, RateLimitError, ServerError, ValidationError } from "./errors";
+export type { AstrologyAPIConfig, BirthData, ChartId, CoupleBirthData, DashaPlanet, Language, MatchBirthData, MajorDashaPlanet, NumerologyData, PapasamyamData, PDFBranding, PlanetName, VarshaphalData, ZodiacSign } from "./types";
 
 /**
  * Official AstrologyAPI.com Node.js / TypeScript SDK.

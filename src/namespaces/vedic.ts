@@ -1,4 +1,4 @@
-import { HttpClient } from "../http.js";
+import { HttpClient } from "../http";
 import type {
   BirthData,
   ChartId,
@@ -8,7 +8,7 @@ import type {
   PapasamyamData,
   PlanetName,
   VarshaphalData,
-} from "../types.js";
+} from "../types";
 
 /**
  * Vedic astrology namespace — Parashari & Jaimini systems.

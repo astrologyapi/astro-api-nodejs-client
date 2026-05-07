@@ -1,5 +1,5 @@
-import { HttpClient } from "../http.js";
-import type { BirthData, Language, ZodiacSign } from "../types.js";
+import { HttpClient } from "../http";
+import type { BirthData, Language, ZodiacSign } from "../types";
 
 /**
  * Horoscopes namespace — daily, weekly, and monthly sun-sign predictions.

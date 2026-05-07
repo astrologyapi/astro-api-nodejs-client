@@ -1,5 +1,5 @@
-import { HttpClient } from "../http.js";
-import type { BirthData, CoupleBirthData, Language, PlanetName, ZodiacSign } from "../types.js";
+import { HttpClient } from "../http";
+import type { BirthData, CoupleBirthData, Language, PlanetName, ZodiacSign } from "../types";
 
 /**
  * Western (Tropical) astrology namespace.
